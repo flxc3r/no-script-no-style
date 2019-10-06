@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>No Script No Style</title>
+        <style>
+                #SECTION-TOP {
+                    background-color: #ADD8E6;
+                    border: 1px solid black;
+                }
+                #SECTION-URL {
+                    background-color:#ffeebf;
+                    border: 1px solid black;
+                }
+        </style>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <div class="container">
+
+            
+            <section id="SECTION-TOP" class="my-3">
+                <div class="mx-3">
+                    <h1 class="my-3">No Script No Style</h1>
+                    <form class="form-inline my-3" id="post_url" method="POST">
+                        <input class="form-control form-control-lg" id="url" name="url" placeholder="Enter URL">
+                        <button type="submit" class="btn btn-lg btn-dark mx-3">Load URL</button>
+                    </form>
+                </div>
+            </section>
+            
+            {% if url %}
+            <section id="SECTION-URL">
+                <p class="my-2 mx-3"><a href="{{ url }}">{{ url }}</a></p>                
+            </section>
+            
+
+            <hr>
+            {{ content|safe }}
+            {% endif %}
+
+        </div>
+    </body>
+</html>
