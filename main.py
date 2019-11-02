@@ -20,7 +20,7 @@ def no_script_no_style(url):
 def index():
     # POST
     if request.method == 'POST':
-        url = request.form['url']
+        url = request.form['nsns-url']
         return redirect(url_for('index', url=url))
 
     # GET

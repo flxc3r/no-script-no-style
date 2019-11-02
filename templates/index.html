@@ -3,12 +3,15 @@
         <title>No Script No Style</title>
         <style>
                 #SECTION-TOP {
-                    background-color: #ADD8E6;
-                    border: 1px solid black;
+                    background-color: #7ed6df;
+                    
                 }
                 #SECTION-URL {
-                    background-color:#ffeebf;
-                    border: 1px solid black;
+                    background-color:#130f40;
+                    
+                }
+                #SECTION-URL a {
+                    color: white;
                 }
         </style>
 
@@ -17,29 +20,38 @@
     </head>
 
     <body>
-        <div class="container">
-
-            
-            <section id="SECTION-TOP" class="my-3">
+        <section id="SECTION-TOP" class="py-3">
+            <div class="container">
                 <div class="mx-3">
                     <h1 class="my-3">No Script No Style</h1>
-                    <form class="form-inline my-3" id="post_url" method="POST">
-                        <input class="form-control form-control-lg" id="url" name="url" placeholder="Enter URL">
-                        <button type="submit" class="btn btn-lg btn-dark mx-3">Load URL</button>
+                    <form class="form my-3" id="post_url" method="POST">
+                        <div class="row">
+                            <div class="col">
+                                <input class="form-control form-control-lg" id="url" name="nsns-url" placeholder="Enter URL">
+                            </div>
+                            <div class="col-2 text-right">
+                                <button type="submit" class="btn btn-lg btn-dark mx-3">Load URL</button>
+                            </div>
+                        <!-- /row -->
+                        </div>
                     </form>
+                </div>
+            </div>
+        </section>
+            
+        {% if url %}
+            <section id="SECTION-URL" class="py-2 mb-2">
+                <div class="container">
+                    <p class="my-2 mx-3"><a href="{{ url }}">{{ url }}</a></p>
                 </div>
             </section>
             
-            {% if url %}
-            <section id="SECTION-URL">
-                <p class="my-2 mx-3"><a href="{{ url }}">{{ url }}</a></p>                
-            </section>
-            
+            <div class="container">
+                {{ content|safe }}
+            </div>
+        {% endif %}
 
-            <hr>
-            {{ content|safe }}
-            {% endif %}
-
-        </div>
+        
+        <!-- /div container -->
     </body>
 </html>
